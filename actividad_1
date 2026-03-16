@@ -1,1 +1,30 @@
-print("hello world")
+"""1) BUSCAR ADENTRO!!!
+Generar un programa, que le permita al usuario buscar un valor dentro de una lista pre-construido y que nos
+devuelva el lugar que ocupa.
+Para ello se deberá utilizar una función que a partir de dos parámetros (la lista. y el elemento buscado) nos
+devuelva el índice.
+Por ejemplo, se busca el número 12 dentro del vector [8,12,9,45], la función devolverá el número 1, que es
+el índice donde se encuentra el elemento buscado."""
+
+def buscar_item(lista, item):
+    ubicaciones = []
+    if item in lista:
+        for i in range(len(lista)):
+            if lista[i] == item:
+                ubicaciones.append(i)
+                
+    if len(ubicaciones) == 0:
+        return "El item no se encuentra dentro de la lista"
+    else:
+        return f"Su item se encuentra en el/los índice/s {ubicaciones}"
+
+lista = []
+while True:
+    a = input("Ingrese un Item a la lista (ingrese * para salir): ")
+    if a == "*" and len(lista) != 0:
+        break
+    else:
+        lista.append(a)
+
+item = input("Ingrese el item que desea buscar: ")
+print(buscar_item(lista, item))
